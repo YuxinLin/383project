@@ -1,7 +1,7 @@
 #ifndef PROCESS_PRODUCER
 #define PROCESS_PRODUCER
 
-#define NUM_PROCESS 26 //determine the number of process
+#define NUM_PROCESS 50 //determine the number of process
 #define MAX_QUANTA 100 //determine the maximum arrival_time
 #define CHAR_ARRAYMAX 150
 
@@ -20,7 +20,7 @@ struct process
 	float service_time; // 0.1 to 10
 	int actual_start_time; //when the process is contacted by CPU for first time
 	int end_time; //process finishes
-    float initend_time;
+        float initend_time;
 };
 
 void CreateProcesses(struct process** process_list);
@@ -29,7 +29,7 @@ void CreateProcesses(struct process** process_list);
 *The parameter process_list is a pointer that will point to the created list
 */
 
-void PrintProcessesList(struct process* a);
+void PrintProcessList(struct process* a);
 //Print all process properties includes name, ariority, arrival_time and aervice_time
 
 #endif
