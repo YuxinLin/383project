@@ -15,6 +15,7 @@ struct process{
 	char name; // name A-Z or 0 - 9
 	int actual_start_time; // when the process is contacted by CPU for first time
 	int end_time; // process finishes
+	int initend_time; // initial end time, used for SRT (AG), it will be changed during the running SRT
 };
 
 /**
