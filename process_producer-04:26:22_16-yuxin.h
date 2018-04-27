@@ -1,7 +1,7 @@
 #ifndef PROCESS_PRODUCER
 #define PROCESS_PRODUCER
 
-#define NUM_PROCESS 26 //26 max possible number
+#define NUM_PROCESS 60 //26 max possible number
 #define MAX_QUANTA 100
 #define CHAR_ARRAYMAX 150
 
