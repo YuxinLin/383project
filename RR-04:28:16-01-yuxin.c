@@ -40,7 +40,6 @@ void RoundRobin(struct process* o_plist){
     queue[0] = plist[0];
     queue[0].actual_start_time = 1;
     head++;
-    printf(" PID | Arrival | Start | Priority | Service | Response |  End  | Turnaround\n");
     
     
     while(counter_queue_end > 0){
