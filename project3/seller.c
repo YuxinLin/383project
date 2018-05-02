@@ -37,7 +37,7 @@ void* sell_seats(void* seat_seller){
 		char currentCustomer[2];
  		currentCustomer[1] = seat_seller_s->start_queue->customer_id[1]; 
  		currentCustomer[0] = seat_seller_s->start_queue->customer_id[0];
- 		printf("\nCustomer ID %c%c Seller %c%c arrives\n", seat_seller_s->start_queue->customer_id[0], seat_seller_s->start_queue->customer_id[1], 
+ 		printf("\nCustomer %c%c of Seller %c%c arrives\n", seat_seller_s->start_queue->customer_id[0], seat_seller_s->start_queue->customer_id[1], 
 			seat_seller_s->name[0],
 			seat_seller_s->name[1]);
 
