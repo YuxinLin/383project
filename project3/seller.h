@@ -6,7 +6,7 @@
 ///Seller struct consists of the sellers name, sales price - not used, and the beginning of the queue for customers
 struct seller{
 	///name consist of seller price e.g. H and the other 2 characters depending on number of seller
-	char name[3];
+	char name[2];
 
 	///1 = L; 2 = M; 3 = H - not currently used
 	int sales_price;
