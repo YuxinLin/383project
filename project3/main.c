@@ -71,17 +71,11 @@ int main(int argc, char *argv[]){
 
 	// Populate high seller
 	for(int i = 0; i < NUM_OF_H_SELLERS; i++){
-
-		if(i < 10){
+		
 			h_sellers[i].name[0] = 'H'; 
 			h_sellers[i].name[1] = (char) (i + '0'); // seller id
 			h_sellers[i].name[2] = (char) (i + 48);
-		}
-		else{
-			h_sellers[i].name[0] = 'H';
-			h_sellers[i].name[1] = (char) (i + '0');
-			h_sellers[i].name[2] = '2';
-		}
+		
 		make_customers(&(h_sellers[i].start_queue), NUM_OF_CUSTOMERS);
 		h_sellers[i].sales_price = 3;
 	}
@@ -89,16 +83,10 @@ int main(int argc, char *argv[]){
 	//Populate all medium sellers
 	for(int i = 0; i < NUM_OF_M_SELLERS; i++){
 
-		if(i < 10){
 			m_sellers[i].name[0] = 'M';
 			m_sellers[i].name[1] = (char) (i + '0');
 			m_sellers[i].name[2] = (char) (i + 48);
-		}
-		else{
-			m_sellers[i].name[0] = 'M';
-			m_sellers[i].name[1] = (char) (i + '0');
-			m_sellers[i].name[2] = '2';
-		}
+	
 		make_customers(&(m_sellers[i].start_queue), NUM_OF_CUSTOMERS);
 		m_sellers[i].sales_price = 2;
 	}
@@ -106,16 +94,10 @@ int main(int argc, char *argv[]){
 	// Populate all low sellers
 	for(int i = 0; i < NUM_OF_L_SELLERS; i++){
 
-		if(i < 10){
 			l_sellers[i].name[0] = 'L'; 
 			l_sellers[i].name[1] = i + '0';
 			l_sellers[i].name[2] = (char) (i + 48);
-		}
-		else{
-			l_sellers[i].name[0] = 'L';
-			l_sellers[i].name[1] = i + '0';
-			l_sellers[i].name[2] = '2';
-		}
+	
 		make_customers(&(l_sellers[i].start_queue), NUM_OF_CUSTOMERS);
 		l_sellers[i].sales_price = 1;
 	}
