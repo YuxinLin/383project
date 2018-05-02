@@ -70,54 +70,54 @@ int main(int argc, char *argv[]){
 	//For the future broadcast call to restart threads
 
 	// Populate high seller
-	for(int x = 0; x < NUM_OF_H_SELLERS; x++){
+	for(int i = 0; i < NUM_OF_H_SELLERS; i++){
 
-		if(x < 10){
-			h_sellers[x].name[0] = 'H'; 
-			h_sellers[x].name[1] = (char) (x + '0'); // seller id
-			h_sellers[x].name[2] = (char) (x + 48);
+		if(i < 10){
+			h_sellers[i].name[0] = 'H'; 
+			h_sellers[i].name[1] = (char) (i + '0'); // seller id
+			h_sellers[i].name[2] = (char) (i + 48);
 		}
 		else{
-			h_sellers[x].name[0] = 'H';
-			h_sellers[x].name[1] = (char) (x + '0');
-			h_sellers[x].name[2] = '2';
+			h_sellers[i].name[0] = 'H';
+			h_sellers[i].name[1] = (char) (i + '0');
+			h_sellers[i].name[2] = '2';
 		}
-		make_customers(&(h_sellers[x].start_queue), NUM_OF_CUSTOMERS);
-		h_sellers[x].sales_price = 3;
+		make_customers(&(h_sellers[i].start_queue), NUM_OF_CUSTOMERS);
+		h_sellers[i].sales_price = 3;
 	}
 
 	//Populate all medium sellers
-	for(int x = 0; x < NUM_OF_M_SELLERS; x++){
+	for(int i = 0; i < NUM_OF_M_SELLERS; i++){
 
-		if(x < 10){
-			m_sellers[x].name[0] = 'M';
-			m_sellers[x].name[1] = (char) (x + '0');
-			m_sellers[x].name[2] = (char) (x + 48);
+		if(i < 10){
+			m_sellers[i].name[0] = 'M';
+			m_sellers[i].name[1] = (char) (i + '0');
+			m_sellers[i].name[2] = (char) (i + 48);
 		}
 		else{
-			m_sellers[x].name[0] = 'M';
-			m_sellers[x].name[1] = (char) (x + '0');
-			m_sellers[x].name[2] = '2';
+			m_sellers[i].name[0] = 'M';
+			m_sellers[i].name[1] = (char) (i + '0');
+			m_sellers[i].name[2] = '2';
 		}
-		make_customers(&(m_sellers[x].start_queue), NUM_OF_CUSTOMERS);
-		m_sellers[x].sales_price = 2;
+		make_customers(&(m_sellers[i].start_queue), NUM_OF_CUSTOMERS);
+		m_sellers[i].sales_price = 2;
 	}
 
 	// Populate all low sellers
-	for(int x = 0; x < NUM_OF_L_SELLERS; x++){
+	for(int i = 0; i < NUM_OF_L_SELLERS; i++){
 
-		if(x < 10){
-			l_sellers[x].name[0] = 'L'; 
-			l_sellers[x].name[1] = x + '0';
-			l_sellers[x].name[2] = (char) (x + 48);
+		if(i < 10){
+			l_sellers[i].name[0] = 'L'; 
+			l_sellers[i].name[1] = i + '0';
+			l_sellers[i].name[2] = (char) (i + 48);
 		}
 		else{
-			l_sellers[x].name[0] = 'L';
-			l_sellers[x].name[1] = x + '0';
-			l_sellers[x].name[2] = '2';
+			l_sellers[i].name[0] = 'L';
+			l_sellers[i].name[1] = i + '0';
+			l_sellers[i].name[2] = '2';
 		}
-		make_customers(&(l_sellers[x].start_queue), NUM_OF_CUSTOMERS);
-		l_sellers[x].sales_price = 1;
+		make_customers(&(l_sellers[i].start_queue), NUM_OF_CUSTOMERS);
+		l_sellers[i].sales_price = 1;
 	}
 
 
@@ -154,13 +154,13 @@ int main(int argc, char *argv[]){
     printf("\n\nTimer- %1d:%02d\n", (int) (sec / 60), (int) sec % 60); // Print initial time stamp
 
 	// Create seller M threads
-	for(int x = 0; x < NUM_OF_M_SELLERS; x++){ 
+	for(int i = 0; i < NUM_OF_M_SELLERS; i++){ 
 		// arguments(structure, NULL, function that runs in thread, argument to sell_seats function)
-		pthread_create(&(m_sellers_thread[x]), NULL, sell_seats, (void*) &m_sellers[x]);
+		pthread_create(&(m_sellers_thread[i]), NULL, sell_seats, (void*) &m_sellers[i]);
 	}
 	// Create seller L threads
-	for(int x = 0; x < NUM_OF_L_SELLERS; x++){
-		pthread_create(&(l_sellers_thread[x]), NULL, sell_seats, (void*) &l_sellers[x]);
+	for(int i = 0; i < NUM_OF_L_SELLERS; i++){
+		pthread_create(&(l_sellers_thread[i]), NULL, sell_seats, (void*) &l_sellers[i]);
 	}
 	// Create seller H thread
 	pthread_create(&h_seller_thread, NULL, sell_seats, h_sellers);
@@ -170,11 +170,11 @@ int main(int argc, char *argv[]){
 
 	//join all threads
 	pthread_join(h_seller_thread, NULL);
-	for(int x = 0; x < NUM_OF_L_SELLERS; x++){
-		pthread_join(l_sellers_thread[x], NULL);
+	for(int i = 0; i < NUM_OF_L_SELLERS; i++){
+		pthread_join(l_sellers_thread[i], NULL);
 	}
-	for(int x = 0; x < NUM_OF_M_SELLERS; x++){
-		pthread_join(m_sellers_thread[x], NULL);
+	for(int i = 0; i < NUM_OF_M_SELLERS; i++){
+		pthread_join(m_sellers_thread[i], NULL);
 	}
 	return 0;
 }
