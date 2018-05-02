@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
 
 	if(argc < 2) {
         NUM_OF_CUSTOMERS = 15; // default customer size
-        printf("\nNo N Given. Using default size N = 5\n\n");
+        printf("\nNo N Given. Using default size N = 15\n\n");
     } else {
         NUM_OF_CUSTOMERS= atoi(argv[1]);
         printf("\nNumber of customers : %d\n\n", NUM_OF_CUSTOMERS);
